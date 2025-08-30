@@ -2,7 +2,8 @@
 
 This project dynamically generates an HTML table using JavaScript and DOM manipulation. It displays train status records with headers and data rows, styled using basic CSS.
 
-## 📋 Features
+## 📋 Features<img width="1920" height="1080" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/d07fd081-bad4-4970-846e-16f229f5d876" />
+
 
 - Creates a table with headers: `Sr`, `Train No`, `Train_Name`, `Status`
 - Populates rows with train data using JavaScript
