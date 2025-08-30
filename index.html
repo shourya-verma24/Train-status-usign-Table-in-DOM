@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Doctors Records</title>
+</head>
+<style>
+    .container{
+        border: 2px solid black;
+        text-align: center;
+        background-color: bisque;
+    }
+    #table-container{
+        border: 1px solid gray;
+    }
+    table{
+        margin: auto;
+    }
+    tr{
+        border: 1px solid rgb(6, 6, 219);
+    }
+    td{
+         border: 1px solid rgb(225, 209, 209);
+
+    }
+</style>
+<body>
+    <div class="container">
+        <div>
+            <h2>
+                Train Status Banner
+            </h2>
+        </div>
+        <div id="table-container">
+            <table id="table"></table>
+        </div>
+    </div>    
+</body>
+</html>
+<script>
+    let headings_array = ["Sr", "Train No", "Train_Name", "Status"]
+    let data_array = [
+        [1,12345,"Kanpur Shatabdi","Ontime"],
+        [2,12344,"Vande Bharat Ex", "1 hr early"],
+        [3,23212,"Chitrakoot Intercity", "Delayed"]
+
+
+];
+    let table = document.getElementById("table")
+    let header  = document.createElement("thead")
+    let header_row = document.createElement("tr")
+    headings_array.forEach(headings=>{
+        let head_row_data = document.createElement("th")
+        head_row_data.innerText = headings
+        header_row.append(head_row_data)
+    })
+    header.append(header_row)
+    table.append(header)
+
+    let tbody = document.createElement("tbody")
+    // let body_row = document.createElement("tr")
+    data_array.forEach(running_row =>{
+        tr = document.createElement("tr")
+            running_row.forEach(data=>{
+        let body_data = document.createElement("td")
+        body_data.innerText= data
+        tr.append(body_data)
+        tbody.append(tr)
+    })
+    })
+
+    
+    table.append(tbody)
+
+</script>
+
