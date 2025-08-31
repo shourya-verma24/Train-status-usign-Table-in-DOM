@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Status on Web</title>
+    <script src="https://kit.fontawesome.com/0ea23b093b.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'poppins',sans-serif;
+        box-sizing: border-box;
+    }
+    .container{
+        /* border: 2px solid black; */
+        text-align: center;
+        background-color: rgb(184, 197, 217);
+       
+    }
+    .search-box{
+        width: 600px;
+        background: #fff;
+        margin: 100px auto 0;
+        margin-bottom: 40px;
+        border-radius: 5px; 
+    }
+    .row{
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+
+    }
+    input{
+        flex: 01;
+        height: 50px;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        font-size: 18px;
+        color: #333;
+
+
+    }
+    button{
+        background: transparent;
+        border: 0;
+        outline: 0;
+    }
+    button .fa-solid{
+        width: 25px;
+        color: #555;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    ::placeholder{
+        color: #555;
+    }
+    .result-box ul{
+        border-top: 1px solid #999;
+        padding: 15px 10px;        
+    }
+    .result-box ul li{
+        list-style: none;
+        border-radius: 3px;
+        padding: 15px 10px;
+        cursor: pointer;
+    }
+    .result-box ul li:hover{
+        background-color:#f0ecec;
+
+    }
+    .result-box{
+        max-height: 300px;
+        overflow: scroll;
+    }
+    table{
+        margin: auto;
+    }
+    tr{
+        border: 1px solid rgb(6, 6, 219);
+    }
+    td{
+         border: 1px solid rgb(225, 209, 209);
+
+    }
+</style>
+<body>
+    <div class="container">
+        <div>
+            <h2>
+                Train Status Banner
+            </h2>
+            <div>
+                <div class="search-box">
+                    <div class="row">
+                        <input type="text" id="input-box" placeholder="Enter train name" autocomplete="off">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="result-box">
+
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div id="table-container">
+            <table id="table"></table>
+        </div>
+    </div>  
+<script src="autocomplete.js"></script>  
+</body>
+</html>
+<script>
+    let headings_array = ["Sr", "Train No", "Train_Name", "Status"]
+    let data_array = [
+        [1,12345,"Kanpur Shatabdi","Ontime"],
+        [2,12344,"Vande Bharat Ex", "1 hr early"],
+        [3,23212,"Chitrakoot Intercity", "Delayed"]
+    ];
+    let table = document.getElementById("table")
+    let header  = document.createElement("thead")
+    let header_row = document.createElement("tr")
+    headings_array.forEach(headings=>{
+        let head_row_data = document.createElement("th")
+        head_row_data.innerText = headings
+        header_row.append(head_row_data)
+    })
+    header.append(header_row)
+    table.append(header)
+
+    let tbody = document.createElement("tbody")
+    // let body_row = document.createElement("tr")
+    data_array.forEach(running_row =>{
+        tr = document.createElement("tr")
+            running_row.forEach(data=>{
+        let body_data = document.createElement("td")
+        body_data.innerText= data
+        tr.append(body_data)
+        tbody.append(tr)
+    })
+    })
+
+    
+    table.append(tbody)
+</script>
